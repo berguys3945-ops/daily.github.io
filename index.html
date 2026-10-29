@@ -3,62 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Profil Saya</title>
+    <title>Cyber Profile - リンク</title>
+    <!-- Memuat Google Fonts bergaya futuristik/tech -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        /* 1. MENGGANTI WARNA BACKGROUND & TEMA */
+        :root {
+            --bg-color: #05050a;
+            --panel-bg: rgba(10, 11, 20, 0.85);
+            --neon-cyan: #00f0ff;
+            --neon-pink: #ff007f;
+            --neon-purple: #9d00ff;
+            --text-main: #f0f0f3;
+            --text-muted: #8b9bb4;
+        }
+
+        /* 1. LATAR BELAKANG TEMA FUTURISTIK JEPANG (GRID CYBERPUNK) */
         body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Rajdhani', sans-serif; 
             text-align: center; 
-            background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%); /* Warna background gradasi estetik */
+            background-color: var(--bg-color);
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(157, 0, 255, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(0, 240, 255, 0.1) 0%, transparent 40%),
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
             min-height: 100vh;
             margin: 0;
             padding: 50px 20px;
-            color: #333;
+            color: var(--text-main);
         }
         
         .container {
             max-width: 400px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.85); /* Kotak transparan putih */
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 240, 255, 0.3);
             padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 6px;
+            box-shadow: 0 0 25px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(157, 0, 255, 0.1);
+            position: relative;
         }
 
-        /* 2. MENGATUR FOTO PROFIL */
+        /* Aksen Sudut Kotak Ala Teknologi Sci-Fi */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 12px; height: 12px;
+            border-top: 2px solid var(--neon-cyan);
+            border-left: 2px solid var(--neon-cyan);
+        }
+        .container::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 12px; height: 12px;
+            border-bottom: 2px solid var(--neon-pink);
+            border-right: 2px solid var(--neon-pink);
+        }
+
+        /* 2. FOTO PROFIL DENGAN EFEK NEON */
         .profile-img { 
             width: 110px; 
             height: 110px; 
             border-radius: 50%; 
-            object-fit: cover; /* Agar foto tidak gepeng */
-            border: 4px solid #fff;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            object-fit: cover; 
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
             margin-bottom: 15px;
         }
 
-        h1 { font-size: 22px; margin-bottom: 5px; color: #2c3e50; }
-        p { font-size: 14px; color: #7f8c8d; margin-bottom: 25px; }
+        h1 { 
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px; 
+            margin-bottom: 2px; 
+            color: var(--text-main);
+            letter-spacing: 2px;
+            text-shadow: 0 0 8px rgba(0, 240, 255, 0.4);
+        }
 
-        /* 3. MENGGANTI WARNA TOMBOL & EFEK LAINNYA */
+        .kanji-sub {
+            font-size: 11px;
+            color: var(--neon-pink);
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        p { 
+            font-size: 14px; 
+            color: var(--text-muted); 
+            margin-bottom: 25px; 
+        }
+
+        /* 3. TOMBOL NEON FUTURISTIK */
         .btn { 
             display: block; 
             margin: 12px 0; 
             padding: 14px; 
-            background: #4a00e0; /* Warna dasar tombol (Ungu Tua) */
-            color: white; 
+            background: rgba(10, 11, 20, 0.8);
+            color: var(--neon-cyan); 
             text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: 600; 
-            font-size: 15px;
+            border-radius: 4px; 
+            font-weight: 700; 
+            font-size: 14px;
+            letter-spacing: 1.5px;
+            border: 1px solid var(--neon-cyan);
             transition: all 0.3s ease; 
-            box-shadow: 0 4px 15px rgba(74, 0, 224, 0.2);
+            box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
         }
         
-        /* Efek saat tombol disentuh/di-hover */
+        /* Efek Saat Tombol Disentuh/Di-hover */
         .btn:hover { 
-            background: #8e2de2; /* Berubah menjadi ungu lebih muda */
-            transform: translateY(-2px); /* Tombol sedikit terangkat */
-            box-shadow: 0 6px 20px rgba(142, 45, 226, 0.4);
+            background: var(--neon-cyan); 
+            color: #05050a;
+            transform: translateY(-2px); 
+            box-shadow: 0 0 20px var(--neon-cyan), 0 0 35px rgba(0, 240, 255, 0.6);
         }
     </style>
 </head>
@@ -66,17 +129,16 @@
 
     <div class="container">
         <!-- PASANG FOTO PROFIL DI SINI -->
-        <!-- Ganti URL gambar di bawah dengan link foto kamu sendiri -->
         <img src="https://unsplash.com" alt="Foto Profil" class="profile-img">
         
-        <h1>Nama Kamu di Sini</h1>
+        <h1>NAMA KAMU</h1>
+        <div class="kanji-sub">サイバー リンク</div> <!-- Tulisan Jepang: Cyber Link -->
         <p>Short bio / deskripsi singkat tentang kamu</p>
 
         <!-- MASUKKAN LINK MEDIA SOSIAL ASLIMU DI SINI -->
-        <!-- Ganti tulisan di dalam href="..." dengan link media sosialmu -->
-        <a href="https://instagram.com" class="btn" target="_blank">Instagram</a>
-        <a href="https://linkedin.com" class="btn" target="_blank">LinkedIn</a>
-        <a href="https://wa.me" class="btn" target="_blank">WhatsApp Saya</a>
+        <a href="https://instagram.com" class="btn" target="_blank">INSTAGRAM</a>
+        <a href="https://linkedin.com" class="btn" target="_blank">LINKEDIN</a>
+        <a href="https://wa.me" class="btn" target="_blank">WHATSAPP</a>
     </div>
 
 </body>
